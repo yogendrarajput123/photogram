@@ -2,7 +2,8 @@ import * as React from "react";
 
 interface IErrorProps {}
 
-const Error: React.FunctionComponent<IErrorProps> = (props) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const Error: React.FunctionComponent<IErrorProps> = () => {
   return <div>Error</div>;
 };
 

@@ -25,7 +25,8 @@ const initialValue: UserLogIn = {
   password: "",
 };
 
-const Login: React.FunctionComponent<ILoginProps> = (props) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const Login: React.FunctionComponent<ILoginProps> = () => {
   const { googleSignIn, logIn } = useUserAuth();
   const navigate = useNavigate();
   const [userLogInInfo, setuserLogInInfo] =

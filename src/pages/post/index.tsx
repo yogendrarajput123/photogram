@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import FileUploader from "@/components/fileUploader";
 import Layout from "@/components/layout";
 import { Button } from "@/components/ui/button";
@@ -5,13 +6,13 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useUserAuth } from "@/context/userAuthContext";
 import { createPost } from "@/repository/post.service";
-import { FileEntry, PhotoMeta, Post } from "@/types";
+import { FileEntry, Post } from "@/types";
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
 
 interface ICreatePostProps {}
 
-const CreatePost: React.FunctionComponent<ICreatePostProps> = (props) => {
+const CreatePost: React.FunctionComponent<ICreatePostProps> = () => {
   const navigate = useNavigate();
   const { user } = useUserAuth();
   const [fileEntry, setFileEntry] = React.useState<FileEntry>({
@@ -30,14 +31,14 @@ const CreatePost: React.FunctionComponent<ICreatePostProps> = (props) => {
     e.preventDefault();
     console.log("Uploaded File Entry : ", fileEntry.files);
     console.log("The create post is : ", post);
-    const photoMeta: PhotoMeta[] = fileEntry.files.map((file) => {
-      return { cdnUrl: file.cdnUrl, uuid: file.uuid };
-    });
+    // const photoMeta: PhotoMeta[] = fileEntry.files.map((file) => {
+    //   return { cdnUrl: file.cdnUrl, uuid: file.uuid };
+    // });
     if (user != null) {
       const newPost: Post = {
         ...post,
         userId: user?.uid || null,
-        photos: photoMeta,
+        // photos: photoMeta,
       };
       console.log("The final posy is  : ", newPost);
       await createPost(newPost);

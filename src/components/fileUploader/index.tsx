@@ -26,11 +26,28 @@ const FileUploader: React.FunctionComponent<IFileUploaderProps> = ({
     [fileEntry.files, onChange]
   );
 
+  // useEffect(() => {
+  //   const handleUploadEvent = (e: CustomEvent<OutputFileEntry[]>) => {
+  //     if (e.detail) {
+  //       console.log("The uploaded file event is ; ", e);
+  //       setUploadedFiles([...e.detail]);
+  //     }
+  //   };
+  //   ctxProviderRef.current?.addEventListener("data-output", handleUploadEvent);
+  //   return () => {
+  //     ctxProviderRef.current?.removeEventListener(
+  //       "data-output",
+  //       handleUploadEvent
+  //     );
+  //   };
+  // }, [setUploadedFiles]);
+
   useEffect(() => {
-    const handleUploadEvent = (e: CustomEvent<OutputFileEntry[]>) => {
-      if (e.detail) {
-        console.log("The uploaded file event is ; ", e);
-        setUploadedFiles([...e.detail]);
+    const handleUploadEvent: EventListener = (e) => {
+      const customEvent = e as CustomEvent<OutputFileEntry[]>;
+      if (customEvent.detail) {
+        console.log("The uploaded file event is ; ", customEvent);
+        setUploadedFiles([...customEvent.detail]);
       }
     };
     ctxProviderRef.current?.addEventListener("data-output", handleUploadEvent);

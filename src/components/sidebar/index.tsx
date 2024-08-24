@@ -51,7 +51,8 @@ const navItems = [
     icon: settingsIcon,
   },
 ];
-const Sidebar: React.FunctionComponent<ISidebarProps> = (props) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const Sidebar: React.FunctionComponent<ISidebarProps> = () => {
   const { pathname } = useLocation();
   const { logOut } = useUserAuth();
   return (

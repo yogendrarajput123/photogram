@@ -3,7 +3,8 @@ import * as React from "react";
 
 interface IHomeProps {}
 
-const Home: React.FunctionComponent<IHomeProps> = (props) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const Home: React.FunctionComponent<IHomeProps> = () => {
   return (
     <Layout>
       <div>Home</div>

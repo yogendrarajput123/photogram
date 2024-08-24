@@ -1,9 +1,5 @@
-import * as React from "react";
-
-interface IUserListProps {}
-
-const UserList: React.FunctionComponent<IUserListProps> = (props) => {
-  return;
+const index = () => {
+  return <div></div>;
 };
 
-export default UserList;
+export default index;
